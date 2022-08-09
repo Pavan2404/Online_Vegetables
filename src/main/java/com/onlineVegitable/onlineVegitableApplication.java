@@ -1,4 +1,4 @@
-package in.codegram.onlineVegitableapi;
+package com.onlineVegitable;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

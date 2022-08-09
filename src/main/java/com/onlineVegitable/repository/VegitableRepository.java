@@ -1,4 +1,4 @@
-package in.codegram.onlineVegitableapi.repository;
+package com.onlineVegitable.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import in.codegram.onlineVegitableapi.modal.Vegetable;
+import com.onlineVegitable.modal.Vegetable;
 
 @Repository
 public interface VegitableRepository extends JpaRepository<Vegetable, Integer> {

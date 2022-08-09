@@ -1,4 +1,4 @@
-package in.codegram.onlineVegitableapi.modal;
+package com.onlineVegitable.modal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
