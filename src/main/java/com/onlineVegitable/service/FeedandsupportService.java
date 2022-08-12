@@ -1,5 +1,5 @@
 package com.onlineVegitable.service;
 
-public class VegetableServiceImp {
+public interface FeedandsupportService {
 
 }
