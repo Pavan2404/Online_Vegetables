@@ -1,11 +1,20 @@
 package com.onlineVegitable.service;
 
+import java.util.Optional;
 import java.util.Scanner;
 
+import javax.security.auth.login.AccountNotFoundException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.onlineVegitable.modal.User;
-import com.onlineVegitable.modal.Vegetable;
+import com.onlineVegitable.repository.UserRepository;
 
 public class UserserviceImpl implements Userservice {
+	
+	@Autowired
+	public UserRepository urepo;
+	
 	User user = new User();
 	Scanner sc = new Scanner(System.in);
 
@@ -13,7 +22,7 @@ public class UserserviceImpl implements Userservice {
 	public void addUser(User user) {
 
 		System.out.println("Enter User Name : ");
-		user.setName(sc.nextLine());
+		user.setuserName(sc.nextLine());
 		System.out.println("Enter Mobile no : ");
 		user.setMobileno(sc.nextInt());
 		System.out.println("Enter User Address : ");
@@ -28,25 +37,12 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	@Override
-	public void authenticate(int no, String passwrd) {
-
-	}
-
-	@Override
-	public void showlist() {
+	public Optional<User> authenticate(Integer no, String password) throws AccountNotFoundException {
 		// TODO Auto-generated method stub
-
+		if(urepo.findById(no)==null) {
+			throw new AccountNotFoundException("User is not registered. Please Register first");
+		}
+		return urepo.findById(no);
 	}
-
-	@Override
-	public void addcart(Vegetable vegetable) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void purchase() {
-		// TODO Auto-generated method stub
-
-	}
+	
 }
