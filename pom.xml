@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.2</version>
+		<version>2.6.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>in.codegram</groupId>
-	<artifactId>trackingmanagementapi-1</artifactId>
+	<artifactId>ppmtoolapifirst</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>trackingmanagementapi-1</name>
+	<name>ppmtoolapifirst</name>
 	<description>Project Management Tool Api</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -47,6 +47,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+    <version>2.4.0</version>
+</dependency>
 	</dependencies>
 
 	<build>
