@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.onlineVegitable.exception.OrderNotFoundException;
 import com.onlineVegitable.exception.ProjectIdException;
-
 import com.onlineVegitable.modal.ViewOrder;
 import com.onlineVegitable.repository.ViewOrderRepository;
 
@@ -36,7 +35,7 @@ public class ViewOrderServiceImpl implements ViewOrderService{
 	@Override
 	public Iterable<ViewOrder> findAllProject() {
 		// TODO Auto-generated method stub
-		return null;
+		return repos.findAll();
 	}
 
 	@Override
@@ -49,6 +48,23 @@ public class ViewOrderServiceImpl implements ViewOrderService{
 		repos.deleteById(Id);
 		
 		
+	}
+
+	@Override
+	public void deleteProjectById(Integer vo) throws OrderNotFoundException {
+		// TODO Auto-generated method stub
+		Optional<ViewOrder> proj=repos.findById(vo);
+		if(proj==null) {
+			throw new OrderNotFoundException("Order Id :"+vo+"does not exist");
+		}
+		repos.deleteById(vo);
+		
+	}
+
+	@Override
+	public Iterable<ViewOrder> findAllOrder() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
