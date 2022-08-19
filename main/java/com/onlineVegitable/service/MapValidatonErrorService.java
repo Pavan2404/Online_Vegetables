@@ -1,4 +1,4 @@
-package com.onlineVegitable.service;
+package com.onlineVegetable.service;
 
 import java.util.HashMap;
 

@@ -1,52 +1,41 @@
 package com.onlineVegitable.service;
 
-import java.util.Scanner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.onlineVegitable.exception.AccountNotFoundException;
 import com.onlineVegitable.modal.User;
-import com.onlineVegitable.modal.Vegetable;
+import com.onlineVegitable.repository.QueryClassPersitContext;
+import com.onlineVegitable.repository.UserRepository;
 
+@Service
 public class UserserviceImpl implements Userservice {
-	User user = new User();
-	Scanner sc = new Scanner(System.in);
+	
+	@Autowired
+	UserRepository userrepo;
+    @Autowired
+    QueryClassPersitContext qcp;
 
 	@Override
-	public void addUser(User user) {
-
-		System.out.println("Enter User Name : ");
-		user.setName(sc.nextLine());
-		System.out.println("Enter Mobile no : ");
-		user.setMobileno(sc.nextInt());
-		System.out.println("Enter User Address : ");
-		user.setAddress(sc.nextLine());
-		System.out.println("Enter User Emailid : ");
-		user.setEmailID(sc.nextLine());
-		System.out.println("Enter User Password : ");
-		user.setPassword(sc.nextLine());
-		sc.nextLine();
-		System.out.println("Success! user Created");
-
+	public User validateUser(String username, String password) throws AccountNotFoundException {
+		User pUser = qcp.findByUserName(username);
+		if(pUser == null )throw new AccountNotFoundException("Invalid Username");
+		if(pUser.getPassword().equals(password)) return pUser;
+		else {
+			throw new AccountNotFoundException("Invalid Password");
+		}
 	}
 
 	@Override
-	public void authenticate(int no, String passwrd) {
-
+	public User addUser(User user) {
+		
+		return userrepo.save(user);
 	}
-
-	@Override
-	public void showlist() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void addcart(Vegetable vegetable) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void purchase() {
-		// TODO Auto-generated method stub
-
+	public User loginWithData(String username,String password) throws AccountNotFoundException {
+		User user=qcp.findByUserName(username);
+		
+		
+		userrepo.save(user);
+		return user;
 	}
 }

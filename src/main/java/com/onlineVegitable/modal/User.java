@@ -1,30 +1,57 @@
 package com.onlineVegitable.modal;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+@Entity
 public class User {
-	String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@NotBlank(message="username is required")
+	
+	String username;
+	@NotBlank(message="EmailId is required")
 	String emailId;
-	int mobileno;
+	@NotBlank(message="MobileNumber is required")
+	String mobileno;
+	@NotBlank(message="Password is required")
+	@Size(min=4,max=5,message="Please use 6-8 character and Special  character")
 	String password;
+	@NotBlank(message="Address is required")
 	String address;
 
 	public User() {
 
 	}
 
-	public User(String name, String emailId, int mobileno, String password) {
+	public User(Long id,String username, String emailId, String mobileno, String password) {
 		super();
-		this.name = name;
+		this.id=id;
+		this.username = username;
 		this.emailId = emailId;
 		this.mobileno = mobileno;
 		this.password = password;
 	}
 	
-	public String getName() {
-		return name;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getuserName() {
+		return username;
+	}
+
+	public void setuserName(String username) {
+		this.username = username;
 	}
 
 	public String getEmailId() {
@@ -35,11 +62,11 @@ public class User {
 		this.emailId = emailID;
 	}
 
-	public int getMobileno() {
+	public String getMobileno() {
 		return mobileno;
 	}
 
-	public void setMobileno(int mobileno) {
+	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
 	}
 
@@ -61,8 +88,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", emailId=" + emailId + ", mobileno=" + mobileno + ", password=" + password
-				+ ", address=" + address + "]";
+		return "User [id=" + id + ", username=" + username + ", emailId=" + emailId + ", mobileno=" + mobileno
+				+ ", password=" + password + ", address=" + address + "]";
 	}
+
 
 }
