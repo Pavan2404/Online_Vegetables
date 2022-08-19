@@ -5,7 +5,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.onlineVegitable.modal.Customersupport;
+
+import com.onlineVegitable.exception.OrderNotFoundException;
+import com.onlineVegitable.modal.Customersupport;
+import com.onlineVegitable.modal.ViewOrder;
+
 import com.onlineVegitable.repository.CustomersupportRepository;
 
 @Service
@@ -20,8 +26,16 @@ public class CustomersupportServiceImpl implements CustomersupportService{
 	}
 
 	@Override
+
 	public Optional<Customersupport> getMsgsDetails(Integer Id) {
 		// TODO Auto-generated method stub
+
+	public Optional<Customersupport> getMsgsDetails(Integer Id) throws OrderNotFoundException {
+		Optional<Customersupport> vo=repos.findById(Id);
+		if(vo==null) {
+			throw new OrderNotFoundException (" OrderId :"+Id+"does not exist");
+		}
+
 		return repos.findById(Id);
 	}
 

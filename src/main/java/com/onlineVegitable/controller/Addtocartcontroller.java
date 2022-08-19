@@ -3,7 +3,6 @@ package com.onlineVegitable.controller;
 import java.util.Optional;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
@@ -17,8 +16,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+=======
+import com.onlineVegitable.exception.ItemNotFoundException;
+
 import com.onlineVegitable.modal.Addtocart;
 import com.onlineVegitable.service.AddtocartService;
+
+
+
+=======
+
 
 
 @Controller
@@ -52,7 +60,11 @@ public class Addtocartcontroller {
 		System.out.println(atcse.saveCart(ac));
 	}
     @DeleteMapping("/Addtocart/{id}")
+
     public void deleteCart(@PathVariable Integer id) {
+=======
+    public void deleteCart(@PathVariable Integer id) throws ItemNotFoundException {
+
 		// TODO Auto-generated method stub
 		atcse.deleteCart(id);
 		//return new ResponseEntity<String>("cart Id"+id+ "Deleted cart details",HttpStatus.OK);

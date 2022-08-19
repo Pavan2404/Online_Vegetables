@@ -1,6 +1,8 @@
 package com.onlineVegitable.repository;
 
+
 import java.util.Optional;
+
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -14,5 +16,7 @@ public interface VegetableRepository extends CrudRepository<Vegetable,Long>{
 	
 	 Iterable<Vegetable> findAll() ;
 
+
 //	Optional<Vegetable> findById(Integer integer);
+
 }
