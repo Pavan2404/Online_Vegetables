@@ -15,7 +15,10 @@ public interface ViewOrderService {
 
 	void deleteOrder(int Id);
 
+
+
 	public void deleteProjectById(Integer vo) throws OrderNotFoundException;
 
 	public Iterable<ViewOrder> findAllOrder();
+
 }

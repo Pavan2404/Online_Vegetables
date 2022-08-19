@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.onlineVegitable.exception.ItemNotFoundException;
+
 import com.onlineVegitable.modal.Purchase;
 import com.onlineVegitable.service.PurchaseService;
 
@@ -51,7 +53,11 @@ public class Purchasecontroller {
 		
 	}
 	@DeleteMapping("/Purchase/{id}")
+
+	public void deletePurchase(@PathVariable Integer id) {
+
 	public void deletePurchase(@PathVariable Integer id) throws ItemNotFoundException {
+
 		// TODO Auto-generated method stub
 		purchasese.deletePurchase(id);;
 		

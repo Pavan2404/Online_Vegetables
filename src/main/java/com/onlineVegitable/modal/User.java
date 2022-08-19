@@ -17,6 +17,9 @@ public class User {
 	@NotBlank(message="EmailId is required")
 	String emailId;
 	@NotBlank(message="MobileNumber is required")
+
+	String mobileno;
+
 	int mobileno;
 	@NotBlank(message="Password is required")
 	@Size(min=4,max=5,message="Please use 6-8 character and Special  character")
@@ -28,7 +31,11 @@ public class User {
 
 	}
 
+
+	public User(Long id,String username, String emailId, String mobileno, String password) {
+
 	public User(Long id,String username, String emailId, int mobileno, String password) {
+
 		super();
 		this.id=id;
 		this.username = username;
@@ -62,11 +69,11 @@ public class User {
 		this.emailId = emailID;
 	}
 
-	public int getMobileno() {
+	public String getMobileno() {
 		return mobileno;
 	}
 
-	public void setMobileno(int mobileno) {
+	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
 	}
 

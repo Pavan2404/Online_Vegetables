@@ -34,10 +34,12 @@ public class Vegetable {
 	private Date createdAt;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
+
 	
 	
 	
 	
+
 
 public Vegetable() {
 		super();
@@ -93,4 +95,5 @@ public Long getId() {
 	public void onUpdate() {
 		this.updatedAt=new Date();
 	}
+
 }

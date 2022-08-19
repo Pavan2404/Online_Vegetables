@@ -2,6 +2,12 @@ package com.onlineVegitable.service;
 
 import java.util.Optional;
 
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.onlineVegitable.service.FeedbackService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.onlineVegitable.exception.FeedbackNotFoundException;
@@ -21,6 +27,24 @@ public class FeedbackServiceImpl implements FeedbackService {
 	}
 
 	@Override
+
+	public Optional<Feedback> getSuggDetails(Integer st) {
+		// TODO Auto-generated method stub
+		return frepos.findById(st);
+	}
+
+	//@Override
+//	public Feedback saveFeedback(Feedback fb) {
+		// TODO Auto-generated method stub
+		//return null;
+	//}
+
+	
+
+	
+	
+
+
 	public Optional<Feedback> getSuggDetails(Integer st) throws FeedbackNotFoundException {
 		Optional<Feedback> vo=frepos.findById(st);
 		if(vo==null) {
@@ -28,5 +52,6 @@ public class FeedbackServiceImpl implements FeedbackService {
 		}
 		return frepos.findById(st);
 	}
+
 
 }

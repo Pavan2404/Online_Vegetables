@@ -1,12 +1,30 @@
 package com.onlineVegitable.modal;
 
 import javax.persistence.Entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import javax.persistence.Id;
+
 
 @Entity
 public class ViewOrder {
 	
 	@Id
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int OrderId;
+	@NotBlank(message="vegname is required")
+	String vegname;
+	@NotBlank(message="quantity is required")
+	int quantity;
+	@NotBlank(message="price is required")
+	double price;
+	@NotBlank(message="noof item is required")
+
 	int OrderId;
 	
 	String vegname;
@@ -15,6 +33,7 @@ public class ViewOrder {
 	
 	double price;
 	
+
 	int noofitems;
 
 	public ViewOrder() {

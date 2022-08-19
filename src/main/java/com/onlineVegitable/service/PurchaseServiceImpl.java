@@ -5,8 +5,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 import com.onlineVegitable.exception.ItemNotFoundException;
 import com.onlineVegitable.modal.Addtocart;
+
 import com.onlineVegitable.modal.Purchase;
 import com.onlineVegitable.repository.PurchaseRepository;
 @Service
@@ -37,12 +40,17 @@ private PurchaseRepository purchaserepos;
 	}
 
 	@Override
+
+	public void deletePurchase(Integer id) {
+		// TODO Auto-generated method stub
+
 	public void deletePurchase(Integer id) throws ItemNotFoundException {
 		Optional<Purchase> Atc=purchaserepos.findById(id);
 		if(Atc==null) {
 			throw new ItemNotFoundException("purchase with id :"+id+"does not exist");
 		}
 		
+
 		purchaserepos.deleteById(id);
 		
 		
